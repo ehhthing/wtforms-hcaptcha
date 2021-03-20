@@ -61,7 +61,7 @@ class Hcaptcha(object):
         data = self._call_verify(params)
         if data["success"] is not True:
             if ("error-codes" in data and
-                    "invalid-or-already-seen-response" in data["error-codes"]):
+                    "invalid-input-response" in data["error-codes"]):
                 raise ValidationError(field.gettext(
                     self.errors["invalid-or-already-seen-response"]))
 
